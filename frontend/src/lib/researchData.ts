@@ -11,9 +11,9 @@ export interface FeatureCollection {
 }
 
 export const RESEARCH_PATHS = {
-  metrics: `${import.meta.env.BASE_URL}metrics.json`,
-  geometry: `${import.meta.env.BASE_URL}study_areas.geojson`,
-  manifest: `${import.meta.env.BASE_URL}manifest.json`,
+  metrics: '/ohio-research/metrics.json',
+  geometry: '/ohio-research/study_areas.geojson',
+  manifest: '/ohio-research/manifest.json',
 } as const;
 
 interface ResearchIndicatorDefinition {

@@ -1,0 +1,1870 @@
+{
+  "mode": "ohio_research",
+  "label": "Ohio research data — real public sources",
+  "rows": [
+    {
+      "zcta5": "43412",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.631291,
+      "centroid_lon": -83.321889,
+      "diabetes_pct": 12.8,
+      "high_blood_pressure_pct": 37.8,
+      "depression_pct": 25.4,
+      "foodinsecu_pct": 10.3,
+      "median_household_income_usd": 105263.0,
+      "poverty_rate_pct": 8.517887563884157,
+      "no_vehicle_household_rate_pct": 0.9727626459143969,
+      "insured_population_count": 4011,
+      "uninsured_population_count": 98,
+      "insured_population_pct": 97.61499148211243,
+      "uninsured_population_pct": 2.385008517887564,
+      "nearest_hrsa_center_km": 15.725,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.4159,
+              41.6191
+            ],
+            [
+              -83.4158,
+              41.6041
+            ],
+            [
+              -83.3963,
+              41.6112
+            ],
+            [
+              -83.3968,
+              41.5768
+            ],
+            [
+              -83.3685,
+              41.5741
+            ],
+            [
+              -83.3682,
+              41.5822
+            ],
+            [
+              -83.3585,
+              41.5889
+            ],
+            [
+              -83.3575,
+              41.6075
+            ],
+            [
+              -83.3334,
+              41.6072
+            ],
+            [
+              -83.3391,
+              41.5888
+            ],
+            [
+              -83.2947,
+              41.6036
+            ],
+            [
+              -83.2795,
+              41.6387
+            ],
+            [
+              -83.2598,
+              41.6315
+            ],
+            [
+              -83.1979,
+              41.6324
+            ],
+            [
+              -83.2789,
+              41.6726
+            ],
+            [
+              -83.2863,
+              41.6735
+            ],
+            [
+              -83.2928,
+              41.6667
+            ],
+            [
+              -83.3514,
+              41.6657
+            ],
+            [
+              -83.351,
+              41.6279
+            ],
+            [
+              -83.3752,
+              41.6202
+            ],
+            [
+              -83.4159,
+              41.6191
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 46.794872,
+      "social_disadvantage_score": 20.051282,
+      "healthcare_access_barrier_score": 94.23076923076923,
+      "exploratory_composite_score": 53.692308
+    },
+    {
+      "zcta5": "43434",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.693028,
+      "centroid_lon": -83.444739,
+      "diabetes_pct": 10.6,
+      "high_blood_pressure_pct": 30.7,
+      "depression_pct": 27.3,
+      "foodinsecu_pct": 11.5,
+      "median_household_income_usd": 69688.0,
+      "poverty_rate_pct": 5.660377358490566,
+      "no_vehicle_household_rate_pct": 21.73913043478261,
+      "insured_population_count": 103,
+      "uninsured_population_count": 3,
+      "insured_population_pct": 97.16981132075472,
+      "uninsured_population_pct": 2.830188679245283,
+      "nearest_hrsa_center_km": 6.541,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.4455,
+              41.6956
+            ],
+            [
+              -83.4453,
+              41.6907
+            ],
+            [
+              -83.444,
+              41.6908
+            ],
+            [
+              -83.4442,
+              41.6956
+            ],
+            [
+              -83.4455,
+              41.6956
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 26.282051,
+      "social_disadvantage_score": 49.897436,
+      "healthcare_access_barrier_score": 71.15384615384616,
+      "exploratory_composite_score": 49.111111
+    },
+    {
+      "zcta5": "43504",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.695778,
+      "centroid_lon": -83.836757,
+      "diabetes_pct": 12.1,
+      "high_blood_pressure_pct": 36.2,
+      "depression_pct": 25.4,
+      "foodinsecu_pct": 8.4,
+      "median_household_income_usd": 87750.0,
+      "poverty_rate_pct": 0.8287292817679558,
+      "no_vehicle_household_rate_pct": 0.7352941176470589,
+      "insured_population_count": 975,
+      "uninsured_population_count": 111,
+      "insured_population_pct": 89.77900552486187,
+      "uninsured_population_pct": 10.220994475138122,
+      "nearest_hrsa_center_km": 8.508,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.8996,
+              41.72
+            ],
+            [
+              -83.8802,
+              41.7129
+            ],
+            [
+              -83.8793,
+              41.6863
+            ],
+            [
+              -83.8572,
+              41.6721
+            ],
+            [
+              -83.8001,
+              41.6733
+            ],
+            [
+              -83.8061,
+              41.7225
+            ],
+            [
+              -83.8206,
+              41.7222
+            ],
+            [
+              -83.8996,
+              41.72
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 35.25641,
+      "social_disadvantage_score": 13.846154,
+      "healthcare_access_barrier_score": 78.84615384615384,
+      "exploratory_composite_score": 42.649573
+    },
+    {
+      "zcta5": "43528",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.628855,
+      "centroid_lon": -83.749575,
+      "diabetes_pct": 13.0,
+      "high_blood_pressure_pct": 36.5,
+      "depression_pct": 25.2,
+      "foodinsecu_pct": 11.8,
+      "median_household_income_usd": 92188.0,
+      "poverty_rate_pct": 9.87857709439258,
+      "no_vehicle_household_rate_pct": 4.070121951219512,
+      "insured_population_count": 15183,
+      "uninsured_population_count": 1251,
+      "insured_population_pct": 92.38773274917854,
+      "uninsured_population_pct": 7.612267250821468,
+      "nearest_hrsa_center_km": 2.424,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.7911,
+              41.6686
+            ],
+            [
+              -83.807,
+              41.6579
+            ],
+            [
+              -83.8062,
+              41.6296
+            ],
+            [
+              -83.7888,
+              41.6367
+            ],
+            [
+              -83.7742,
+              41.6199
+            ],
+            [
+              -83.7864,
+              41.6042
+            ],
+            [
+              -83.7506,
+              41.603
+            ],
+            [
+              -83.7308,
+              41.5916
+            ],
+            [
+              -83.6915,
+              41.6006
+            ],
+            [
+              -83.6842,
+              41.6137
+            ],
+            [
+              -83.6963,
+              41.636
+            ],
+            [
+              -83.723,
+              41.6465
+            ],
+            [
+              -83.7618,
+              41.6444
+            ],
+            [
+              -83.7605,
+              41.659
+            ],
+            [
+              -83.7699,
+              41.6727
+            ],
+            [
+              -83.7911,
+              41.6686
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 41.666667,
+      "social_disadvantage_score": 34.307692,
+      "healthcare_access_barrier_score": 40.38461538461539,
+      "exploratory_composite_score": 38.786325
+    },
+    {
+      "zcta5": "43537",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.574823,
+      "centroid_lon": -83.686622,
+      "diabetes_pct": 11.7,
+      "high_blood_pressure_pct": 34.7,
+      "depression_pct": 25.5,
+      "foodinsecu_pct": 9.2,
+      "median_household_income_usd": 85919.0,
+      "poverty_rate_pct": 6.567606702061642,
+      "no_vehicle_household_rate_pct": 1.6483081068230445,
+      "insured_population_count": 28549,
+      "uninsured_population_count": 671,
+      "insured_population_pct": 97.70362765229295,
+      "uninsured_population_pct": 2.29637234770705,
+      "nearest_hrsa_center_km": 4.817,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.7506,
+              41.603
+            ],
+            [
+              -83.7375,
+              41.5883
+            ],
+            [
+              -83.7375,
+              41.5713
+            ],
+            [
+              -83.7209,
+              41.547
+            ],
+            [
+              -83.6964,
+              41.5367
+            ],
+            [
+              -83.6656,
+              41.5493
+            ],
+            [
+              -83.6064,
+              41.5803
+            ],
+            [
+              -83.6421,
+              41.5909
+            ],
+            [
+              -83.682,
+              41.5923
+            ],
+            [
+              -83.6742,
+              41.6102
+            ],
+            [
+              -83.6842,
+              41.6137
+            ],
+            [
+              -83.6915,
+              41.6006
+            ],
+            [
+              -83.7308,
+              41.5916
+            ],
+            [
+              -83.7506,
+              41.603
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 33.974359,
+      "social_disadvantage_score": 29.282051,
+      "healthcare_access_barrier_score": 67.3076923076923,
+      "exploratory_composite_score": 43.521367
+    },
+    {
+      "zcta5": "43542",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.566706,
+      "centroid_lon": -83.765025,
+      "diabetes_pct": 11.0,
+      "high_blood_pressure_pct": 33.1,
+      "depression_pct": 25.6,
+      "foodinsecu_pct": 8.3,
+      "median_household_income_usd": 167321.0,
+      "poverty_rate_pct": 6.163293154423471,
+      "no_vehicle_household_rate_pct": 0.0,
+      "insured_population_count": 4357,
+      "uninsured_population_count": 74,
+      "insured_population_pct": 98.32994809298127,
+      "uninsured_population_pct": 1.6700519070187316,
+      "nearest_hrsa_center_km": 7.42,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.7864,
+              41.6042
+            ],
+            [
+              -83.8006,
+              41.5858
+            ],
+            [
+              -83.8055,
+              41.5523
+            ],
+            [
+              -83.786,
+              41.5403
+            ],
+            [
+              -83.753,
+              41.5411
+            ],
+            [
+              -83.7526,
+              41.5294
+            ],
+            [
+              -83.7329,
+              41.5294
+            ],
+            [
+              -83.7209,
+              41.547
+            ],
+            [
+              -83.7375,
+              41.5713
+            ],
+            [
+              -83.7375,
+              41.5883
+            ],
+            [
+              -83.7506,
+              41.603
+            ],
+            [
+              -83.7864,
+              41.6042
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 23.717949,
+      "social_disadvantage_score": 9.0,
+      "healthcare_access_barrier_score": 75.0,
+      "exploratory_composite_score": 35.905983
+    },
+    {
+      "zcta5": "43547",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.49216,
+      "centroid_lon": -83.876316,
+      "diabetes_pct": 11.5,
+      "high_blood_pressure_pct": 33.0,
+      "depression_pct": 27.5,
+      "foodinsecu_pct": 12.7,
+      "median_household_income_usd": null,
+      "poverty_rate_pct": 18.83116883116883,
+      "no_vehicle_household_rate_pct": 0.0,
+      "insured_population_count": 616,
+      "uninsured_population_count": 0,
+      "insured_population_pct": 100.0,
+      "uninsured_population_pct": 0.0,
+      "nearest_hrsa_center_km": 17.66,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.8829,
+              41.4976
+            ],
+            [
+              -83.8747,
+              41.4877
+            ],
+            [
+              -83.8652,
+              41.4952
+            ],
+            [
+              -83.8657,
+              41.4957
+            ],
+            [
+              -83.8829,
+              41.4976
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 37.820513,
+      "social_disadvantage_score": null,
+      "healthcare_access_barrier_score": 98.07692307692307,
+      "exploratory_composite_score": null
+    },
+    {
+      "zcta5": "43560",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.700591,
+      "centroid_lon": -83.738852,
+      "diabetes_pct": 10.5,
+      "high_blood_pressure_pct": 32.6,
+      "depression_pct": 24.7,
+      "foodinsecu_pct": 7.5,
+      "median_household_income_usd": 104865.0,
+      "poverty_rate_pct": 5.271023381798935,
+      "no_vehicle_household_rate_pct": 2.832140015910899,
+      "insured_population_count": 31335,
+      "uninsured_population_count": 1051,
+      "insured_population_pct": 96.7547705798802,
+      "uninsured_population_pct": 3.245229420119805,
+      "nearest_hrsa_center_km": 4.252,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6496,
+              41.7274
+            ],
+            [
+              -83.8061,
+              41.7225
+            ],
+            [
+              -83.8001,
+              41.6733
+            ],
+            [
+              -83.7911,
+              41.6686
+            ],
+            [
+              -83.7699,
+              41.6727
+            ],
+            [
+              -83.7605,
+              41.659
+            ],
+            [
+              -83.7229,
+              41.681
+            ],
+            [
+              -83.6954,
+              41.683
+            ],
+            [
+              -83.6957,
+              41.6837
+            ],
+            [
+              -83.6959,
+              41.6967
+            ],
+            [
+              -83.6606,
+              41.7096
+            ],
+            [
+              -83.6496,
+              41.7274
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 7.692308,
+      "social_disadvantage_score": 21.384615,
+      "healthcare_access_barrier_score": 63.46153846153846,
+      "exploratory_composite_score": 30.846154
+    },
+    {
+      "zcta5": "43566",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.491623,
+      "centroid_lon": -83.756052,
+      "diabetes_pct": 10.7,
+      "high_blood_pressure_pct": 33.5,
+      "depression_pct": 24.9,
+      "foodinsecu_pct": 7.2,
+      "median_household_income_usd": 108497.0,
+      "poverty_rate_pct": 3.2878714076960547,
+      "no_vehicle_household_rate_pct": 1.5239256324291375,
+      "insured_population_count": 7860,
+      "uninsured_population_count": 291,
+      "insured_population_pct": 96.42988590357011,
+      "uninsured_population_pct": 3.570114096429886,
+      "nearest_hrsa_center_km": 14.467,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.8309,
+              41.4664
+            ],
+            [
+              -83.8257,
+              41.4558
+            ],
+            [
+              -83.7965,
+              41.4559
+            ],
+            [
+              -83.7481,
+              41.4659
+            ],
+            [
+              -83.7326,
+              41.4847
+            ],
+            [
+              -83.7128,
+              41.4925
+            ],
+            [
+              -83.7092,
+              41.5231
+            ],
+            [
+              -83.6964,
+              41.5367
+            ],
+            [
+              -83.7209,
+              41.547
+            ],
+            [
+              -83.7329,
+              41.5294
+            ],
+            [
+              -83.7526,
+              41.5294
+            ],
+            [
+              -83.7763,
+              41.5169
+            ],
+            [
+              -83.8017,
+              41.4918
+            ],
+            [
+              -83.802,
+              41.4775
+            ],
+            [
+              -83.8309,
+              41.4664
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 17.307692,
+      "social_disadvantage_score": 13.589744,
+      "healthcare_access_barrier_score": 90.38461538461539,
+      "exploratory_composite_score": 40.42735
+    },
+    {
+      "zcta5": "43571",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.513388,
+      "centroid_lon": -83.822741,
+      "diabetes_pct": 11.1,
+      "high_blood_pressure_pct": 33.7,
+      "depression_pct": 26.2,
+      "foodinsecu_pct": 8.3,
+      "median_household_income_usd": 99435.0,
+      "poverty_rate_pct": 8.646883430356382,
+      "no_vehicle_household_rate_pct": 1.43256464011181,
+      "insured_population_count": 6843,
+      "uninsured_population_count": 230,
+      "insured_population_pct": 96.74819737028135,
+      "uninsured_population_pct": 3.2518026297186484,
+      "nearest_hrsa_center_km": 13.806,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.8055,
+              41.5523
+            ],
+            [
+              -83.8609,
+              41.5491
+            ],
+            [
+              -83.8517,
+              41.5167
+            ],
+            [
+              -83.8686,
+              41.5142
+            ],
+            [
+              -83.8657,
+              41.4957
+            ],
+            [
+              -83.8652,
+              41.4952
+            ],
+            [
+              -83.8555,
+              41.4952
+            ],
+            [
+              -83.8309,
+              41.4664
+            ],
+            [
+              -83.802,
+              41.4775
+            ],
+            [
+              -83.8017,
+              41.4918
+            ],
+            [
+              -83.7763,
+              41.5169
+            ],
+            [
+              -83.7526,
+              41.5294
+            ],
+            [
+              -83.753,
+              41.5411
+            ],
+            [
+              -83.786,
+              41.5403
+            ],
+            [
+              -83.8055,
+              41.5523
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 35.25641,
+      "social_disadvantage_score": 26.564103,
+      "healthcare_access_barrier_score": 86.53846153846155,
+      "exploratory_composite_score": 49.452992
+    },
+    {
+      "zcta5": "43604",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.651526,
+      "centroid_lon": -83.540954,
+      "diabetes_pct": 21.9,
+      "high_blood_pressure_pct": 45.8,
+      "depression_pct": 28.0,
+      "foodinsecu_pct": 44.3,
+      "median_household_income_usd": 18980.0,
+      "poverty_rate_pct": 55.972806733570735,
+      "no_vehicle_household_rate_pct": 42.12212212212212,
+      "insured_population_count": 8738,
+      "uninsured_population_count": 582,
+      "insured_population_pct": 93.75536480686695,
+      "uninsured_population_pct": 6.244635193133047,
+      "nearest_hrsa_center_km": 0.212,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5613,
+              41.6575
+            ],
+            [
+              -83.5626,
+              41.6432
+            ],
+            [
+              -83.5319,
+              41.6326
+            ],
+            [
+              -83.5323,
+              41.6477
+            ],
+            [
+              -83.5111,
+              41.66
+            ],
+            [
+              -83.5237,
+              41.6683
+            ],
+            [
+              -83.5354,
+              41.661
+            ],
+            [
+              -83.5613,
+              41.6575
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 85.897436,
+      "social_disadvantage_score": 98.051282,
+      "healthcare_access_barrier_score": 9.615384615384617,
+      "exploratory_composite_score": 64.521368
+    },
+    {
+      "zcta5": "43605",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.648026,
+      "centroid_lon": -83.506863,
+      "diabetes_pct": 17.9,
+      "high_blood_pressure_pct": 40.3,
+      "depression_pct": 30.0,
+      "foodinsecu_pct": 33.5,
+      "median_household_income_usd": 36389.0,
+      "poverty_rate_pct": 36.78293456327472,
+      "no_vehicle_household_rate_pct": 14.542352468887996,
+      "insured_population_count": 21639,
+      "uninsured_population_count": 2706,
+      "insured_population_pct": 88.88478126925446,
+      "uninsured_population_pct": 11.115218730745532,
+      "nearest_hrsa_center_km": 0.552,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5319,
+              41.6326
+            ],
+            [
+              -83.5699,
+              41.6172
+            ],
+            [
+              -83.5429,
+              41.6143
+            ],
+            [
+              -83.5055,
+              41.6181
+            ],
+            [
+              -83.5061,
+              41.6364
+            ],
+            [
+              -83.469,
+              41.6661
+            ],
+            [
+              -83.4652,
+              41.6891
+            ],
+            [
+              -83.4827,
+              41.6838
+            ],
+            [
+              -83.5111,
+              41.66
+            ],
+            [
+              -83.5323,
+              41.6477
+            ],
+            [
+              -83.5319,
+              41.6326
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 85.25641,
+      "social_disadvantage_score": 82.512821,
+      "healthcare_access_barrier_score": 17.307692307692307,
+      "exploratory_composite_score": 61.692308
+    },
+    {
+      "zcta5": "43606",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.673136,
+      "centroid_lon": -83.611414,
+      "diabetes_pct": 11.6,
+      "high_blood_pressure_pct": 32.5,
+      "depression_pct": 27.0,
+      "foodinsecu_pct": 20.6,
+      "median_household_income_usd": 60308.0,
+      "poverty_rate_pct": 15.353434141009291,
+      "no_vehicle_household_rate_pct": 10.474695959199686,
+      "insured_population_count": 23249,
+      "uninsured_population_count": 1063,
+      "insured_population_pct": 95.62767357683448,
+      "uninsured_population_pct": 4.372326423165515,
+      "nearest_hrsa_center_km": 3.333,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6445,
+              41.6881
+            ],
+            [
+              -83.6412,
+              41.6608
+            ],
+            [
+              -83.6088,
+              41.6558
+            ],
+            [
+              -83.5832,
+              41.663
+            ],
+            [
+              -83.562,
+              41.6579
+            ],
+            [
+              -83.5724,
+              41.6697
+            ],
+            [
+              -83.5745,
+              41.678
+            ],
+            [
+              -83.5843,
+              41.6779
+            ],
+            [
+              -83.623,
+              41.6868
+            ],
+            [
+              -83.6445,
+              41.6881
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 33.974359,
+      "social_disadvantage_score": 59.025641,
+      "healthcare_access_barrier_score": 51.92307692307693,
+      "exploratory_composite_score": 48.307692
+    },
+    {
+      "zcta5": "43607",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.648634,
+      "centroid_lon": -83.604132,
+      "diabetes_pct": 18.7,
+      "high_blood_pressure_pct": 42.5,
+      "depression_pct": 24.7,
+      "foodinsecu_pct": 31.5,
+      "median_household_income_usd": 37442.0,
+      "poverty_rate_pct": 31.534061893575732,
+      "no_vehicle_household_rate_pct": 16.64014548761082,
+      "insured_population_count": 18647,
+      "uninsured_population_count": 1162,
+      "insured_population_pct": 94.13397950426574,
+      "uninsured_population_pct": 5.866020495734262,
+      "nearest_hrsa_center_km": 2.715,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6412,
+              41.6608
+            ],
+            [
+              -83.6461,
+              41.6435
+            ],
+            [
+              -83.6259,
+              41.6317
+            ],
+            [
+              -83.6259,
+              41.631
+            ],
+            [
+              -83.5626,
+              41.6432
+            ],
+            [
+              -83.5613,
+              41.6575
+            ],
+            [
+              -83.562,
+              41.6579
+            ],
+            [
+              -83.5832,
+              41.663
+            ],
+            [
+              -83.6088,
+              41.6558
+            ],
+            [
+              -83.6412,
+              41.6608
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 58.974359,
+      "social_disadvantage_score": 81.179487,
+      "healthcare_access_barrier_score": 48.07692307692308,
+      "exploratory_composite_score": 62.74359
+    },
+    {
+      "zcta5": "43608",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.679872,
+      "centroid_lon": -83.528913,
+      "diabetes_pct": 23.9,
+      "high_blood_pressure_pct": 48.8,
+      "depression_pct": 26.6,
+      "foodinsecu_pct": 48.0,
+      "median_household_income_usd": 28535.0,
+      "poverty_rate_pct": 46.07733986491502,
+      "no_vehicle_household_rate_pct": 17.888952056092478,
+      "insured_population_count": 12266,
+      "uninsured_population_count": 1263,
+      "insured_population_pct": 90.6644984847365,
+      "uninsured_population_pct": 9.335501515263507,
+      "nearest_hrsa_center_km": 0.122,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5557,
+              41.6872
+            ],
+            [
+              -83.5445,
+              41.6711
+            ],
+            [
+              -83.5354,
+              41.661
+            ],
+            [
+              -83.5237,
+              41.6683
+            ],
+            [
+              -83.5115,
+              41.6936
+            ],
+            [
+              -83.5557,
+              41.6872
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 85.25641,
+      "social_disadvantage_score": 90.25641,
+      "healthcare_access_barrier_score": 5.769230769230769,
+      "exploratory_composite_score": 60.42735
+    },
+    {
+      "zcta5": "43609",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.626694,
+      "centroid_lon": -83.58088,
+      "diabetes_pct": 16.7,
+      "high_blood_pressure_pct": 38.9,
+      "depression_pct": 28.4,
+      "foodinsecu_pct": 31.8,
+      "median_household_income_usd": 42510.0,
+      "poverty_rate_pct": 29.823784209490057,
+      "no_vehicle_household_rate_pct": 15.148114901256733,
+      "insured_population_count": 18878,
+      "uninsured_population_count": 1599,
+      "insured_population_pct": 92.19123895101822,
+      "uninsured_population_pct": 7.8087610489817845,
+      "nearest_hrsa_center_km": 1.495,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6259,
+              41.631
+            ],
+            [
+              -83.6283,
+              41.6195
+            ],
+            [
+              -83.5969,
+              41.6232
+            ],
+            [
+              -83.576,
+              41.6126
+            ],
+            [
+              -83.5699,
+              41.6172
+            ],
+            [
+              -83.5319,
+              41.6326
+            ],
+            [
+              -83.5626,
+              41.6432
+            ],
+            [
+              -83.6259,
+              41.631
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 80.128205,
+      "social_disadvantage_score": 75.948718,
+      "healthcare_access_barrier_score": 32.69230769230769,
+      "exploratory_composite_score": 62.923077
+    },
+    {
+      "zcta5": "43610",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.678023,
+      "centroid_lon": -83.561364,
+      "diabetes_pct": 20.6,
+      "high_blood_pressure_pct": 46.5,
+      "depression_pct": 23.7,
+      "foodinsecu_pct": 32.6,
+      "median_household_income_usd": 38369.0,
+      "poverty_rate_pct": 33.019335647000496,
+      "no_vehicle_household_rate_pct": 12.130971551261407,
+      "insured_population_count": 3848,
+      "uninsured_population_count": 209,
+      "insured_population_pct": 94.84841015528716,
+      "uninsured_population_pct": 5.151589844712842,
+      "nearest_hrsa_center_km": 1.166,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5745,
+              41.678
+            ],
+            [
+              -83.5724,
+              41.6697
+            ],
+            [
+              -83.5445,
+              41.6711
+            ],
+            [
+              -83.5557,
+              41.6872
+            ],
+            [
+              -83.5745,
+              41.678
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 59.615385,
+      "social_disadvantage_score": 77.282051,
+      "healthcare_access_barrier_score": 28.846153846153843,
+      "exploratory_composite_score": 55.247863
+    },
+    {
+      "zcta5": "43611",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.705139,
+      "centroid_lon": -83.48503,
+      "diabetes_pct": 15.1,
+      "high_blood_pressure_pct": 38.5,
+      "depression_pct": 28.1,
+      "foodinsecu_pct": 20.4,
+      "median_household_income_usd": 58135.0,
+      "poverty_rate_pct": 18.921969045571796,
+      "no_vehicle_household_rate_pct": 6.675834479309914,
+      "insured_population_count": 17971,
+      "uninsured_population_count": 795,
+      "insured_population_pct": 95.76361504849196,
+      "uninsured_population_pct": 4.236384951508047,
+      "nearest_hrsa_center_km": 4.167,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5237,
+              41.6683
+            ],
+            [
+              -83.5111,
+              41.66
+            ],
+            [
+              -83.4827,
+              41.6838
+            ],
+            [
+              -83.4677,
+              41.7226
+            ],
+            [
+              -83.4554,
+              41.7328
+            ],
+            [
+              -83.504,
+              41.7315
+            ],
+            [
+              -83.5115,
+              41.6936
+            ],
+            [
+              -83.5237,
+              41.6683
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 76.282051,
+      "social_disadvantage_score": 59.128205,
+      "healthcare_access_barrier_score": 59.61538461538461,
+      "exploratory_composite_score": 65.008547
+    },
+    {
+      "zcta5": "43612",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.715635,
+      "centroid_lon": -83.550946,
+      "diabetes_pct": 14.0,
+      "high_blood_pressure_pct": 36.3,
+      "depression_pct": 28.7,
+      "foodinsecu_pct": 22.5,
+      "median_household_income_usd": 50484.0,
+      "poverty_rate_pct": 19.475454415342778,
+      "no_vehicle_household_rate_pct": 7.527151211361738,
+      "insured_population_count": 26184,
+      "uninsured_population_count": 1970,
+      "insured_population_pct": 93.00277047666407,
+      "uninsured_population_pct": 6.997229523335938,
+      "nearest_hrsa_center_km": 0.914,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5855,
+              41.7293
+            ],
+            [
+              -83.5843,
+              41.6779
+            ],
+            [
+              -83.5745,
+              41.678
+            ],
+            [
+              -83.5557,
+              41.6872
+            ],
+            [
+              -83.5115,
+              41.6936
+            ],
+            [
+              -83.504,
+              41.7315
+            ],
+            [
+              -83.5563,
+              41.7301
+            ],
+            [
+              -83.5855,
+              41.7293
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 67.307692,
+      "social_disadvantage_score": 65.641026,
+      "healthcare_access_barrier_score": 25.0,
+      "exploratory_composite_score": 52.649573
+    },
+    {
+      "zcta5": "43613",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.706246,
+      "centroid_lon": -83.60373,
+      "diabetes_pct": 12.7,
+      "high_blood_pressure_pct": 34.5,
+      "depression_pct": 28.0,
+      "foodinsecu_pct": 17.1,
+      "median_household_income_usd": 63425.0,
+      "poverty_rate_pct": 15.350906095551895,
+      "no_vehicle_household_rate_pct": 8.134043031711522,
+      "insured_population_count": 29062,
+      "uninsured_population_count": 1535,
+      "insured_population_pct": 94.98316828447233,
+      "uninsured_population_pct": 5.016831715527666,
+      "nearest_hrsa_center_km": 0.427,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6313,
+              41.728
+            ],
+            [
+              -83.6235,
+              41.7239
+            ],
+            [
+              -83.623,
+              41.6868
+            ],
+            [
+              -83.5843,
+              41.6779
+            ],
+            [
+              -83.5855,
+              41.7293
+            ],
+            [
+              -83.6054,
+              41.7288
+            ],
+            [
+              -83.6313,
+              41.728
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 51.282051,
+      "social_disadvantage_score": 53.846154,
+      "healthcare_access_barrier_score": 13.461538461538462,
+      "exploratory_composite_score": 39.529914
+    },
+    {
+      "zcta5": "43614",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.604201,
+      "centroid_lon": -83.630091,
+      "diabetes_pct": 14.1,
+      "high_blood_pressure_pct": 37.7,
+      "depression_pct": 26.0,
+      "foodinsecu_pct": 16.0,
+      "median_household_income_usd": 57253.0,
+      "poverty_rate_pct": 15.823574249878734,
+      "no_vehicle_household_rate_pct": 8.158772988709792,
+      "insured_population_count": 27881,
+      "uninsured_population_count": 969,
+      "insured_population_pct": 96.64124783362219,
+      "uninsured_population_pct": 3.3587521663778164,
+      "nearest_hrsa_center_km": 3.458,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6742,
+              41.6102
+            ],
+            [
+              -83.682,
+              41.5923
+            ],
+            [
+              -83.6421,
+              41.5909
+            ],
+            [
+              -83.6064,
+              41.5803
+            ],
+            [
+              -83.588,
+              41.601
+            ],
+            [
+              -83.576,
+              41.6126
+            ],
+            [
+              -83.5969,
+              41.6232
+            ],
+            [
+              -83.6283,
+              41.6195
+            ],
+            [
+              -83.6742,
+              41.6102
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 58.974359,
+      "social_disadvantage_score": 63.025641,
+      "healthcare_access_barrier_score": 55.769230769230774,
+      "exploratory_composite_score": 59.25641
+    },
+    {
+      "zcta5": "43615",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.650277,
+      "centroid_lon": -83.673822,
+      "diabetes_pct": 14.1,
+      "high_blood_pressure_pct": 37.3,
+      "depression_pct": 25.9,
+      "foodinsecu_pct": 17.1,
+      "median_household_income_usd": 58466.0,
+      "poverty_rate_pct": 14.447892040977147,
+      "no_vehicle_household_rate_pct": 6.067247554391404,
+      "insured_population_count": 38475,
+      "uninsured_population_count": 2178,
+      "insured_population_pct": 94.64246181093647,
+      "uninsured_population_pct": 5.357538189063538,
+      "nearest_hrsa_center_km": 0.619,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6954,
+              41.683
+            ],
+            [
+              -83.7022,
+              41.6604
+            ],
+            [
+              -83.723,
+              41.6465
+            ],
+            [
+              -83.6963,
+              41.636
+            ],
+            [
+              -83.6842,
+              41.6137
+            ],
+            [
+              -83.6742,
+              41.6102
+            ],
+            [
+              -83.6283,
+              41.6195
+            ],
+            [
+              -83.6259,
+              41.631
+            ],
+            [
+              -83.6259,
+              41.6317
+            ],
+            [
+              -83.6461,
+              41.6435
+            ],
+            [
+              -83.6412,
+              41.6608
+            ],
+            [
+              -83.6445,
+              41.6881
+            ],
+            [
+              -83.6816,
+              41.6896
+            ],
+            [
+              -83.6957,
+              41.6837
+            ],
+            [
+              -83.6954,
+              41.683
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 55.128205,
+      "social_disadvantage_score": 50.102564,
+      "healthcare_access_barrier_score": 21.153846153846153,
+      "exploratory_composite_score": 42.128205
+    },
+    {
+      "zcta5": "43616",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.658372,
+      "centroid_lon": -83.408909,
+      "diabetes_pct": 12.8,
+      "high_blood_pressure_pct": 36.2,
+      "depression_pct": 26.0,
+      "foodinsecu_pct": 11.6,
+      "median_household_income_usd": 82105.0,
+      "poverty_rate_pct": 6.883823015912605,
+      "no_vehicle_household_rate_pct": 5.631768953068592,
+      "insured_population_count": 19303,
+      "uninsured_population_count": 763,
+      "insured_population_pct": 96.19754809129871,
+      "uninsured_population_pct": 3.802451908701286,
+      "nearest_hrsa_center_km": 8.584,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.4652,
+              41.6891
+            ],
+            [
+              -83.469,
+              41.6661
+            ],
+            [
+              -83.5061,
+              41.6364
+            ],
+            [
+              -83.5055,
+              41.6181
+            ],
+            [
+              -83.4159,
+              41.6191
+            ],
+            [
+              -83.3752,
+              41.6202
+            ],
+            [
+              -83.351,
+              41.6279
+            ],
+            [
+              -83.3514,
+              41.6657
+            ],
+            [
+              -83.2928,
+              41.6667
+            ],
+            [
+              -83.2863,
+              41.6735
+            ],
+            [
+              -83.3359,
+              41.7055
+            ],
+            [
+              -83.3517,
+              41.687
+            ],
+            [
+              -83.3932,
+              41.6919
+            ],
+            [
+              -83.4232,
+              41.6894
+            ],
+            [
+              -83.4442,
+              41.6956
+            ],
+            [
+              -83.444,
+              41.6908
+            ],
+            [
+              -83.4453,
+              41.6907
+            ],
+            [
+              -83.4455,
+              41.6956
+            ],
+            [
+              -83.4652,
+              41.6891
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 45.512821,
+      "social_disadvantage_score": 35.74359,
+      "healthcare_access_barrier_score": 82.6923076923077,
+      "exploratory_composite_score": 54.649573
+    },
+    {
+      "zcta5": "43617",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.664633,
+      "centroid_lon": -83.728267,
+      "diabetes_pct": 10.9,
+      "high_blood_pressure_pct": 33.4,
+      "depression_pct": 24.0,
+      "foodinsecu_pct": 6.9,
+      "median_household_income_usd": 131935.0,
+      "poverty_rate_pct": 4.351906158357771,
+      "no_vehicle_household_rate_pct": 1.032258064516129,
+      "insured_population_count": 8419,
+      "uninsured_population_count": 106,
+      "insured_population_pct": 98.7565982404692,
+      "uninsured_population_pct": 1.2434017595307918,
+      "nearest_hrsa_center_km": 2.552,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.7605,
+              41.659
+            ],
+            [
+              -83.7618,
+              41.6444
+            ],
+            [
+              -83.723,
+              41.6465
+            ],
+            [
+              -83.7022,
+              41.6604
+            ],
+            [
+              -83.6954,
+              41.683
+            ],
+            [
+              -83.7229,
+              41.681
+            ],
+            [
+              -83.7605,
+              41.659
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 13.461538,
+      "social_disadvantage_score": 10.974359,
+      "healthcare_access_barrier_score": 44.230769230769226,
+      "exploratory_composite_score": 22.888889
+    },
+    {
+      "zcta5": "43620",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.665184,
+      "centroid_lon": -83.554272,
+      "diabetes_pct": 22.3,
+      "high_blood_pressure_pct": 47.4,
+      "depression_pct": 26.0,
+      "foodinsecu_pct": 38.1,
+      "median_household_income_usd": 21405.0,
+      "poverty_rate_pct": 42.12756940029667,
+      "no_vehicle_household_rate_pct": 29.287257019438446,
+      "insured_population_count": 4641,
+      "uninsured_population_count": 250,
+      "insured_population_pct": 94.8885708444081,
+      "uninsured_population_pct": 5.111429155591903,
+      "nearest_hrsa_center_km": 0.015,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.5724,
+              41.6697
+            ],
+            [
+              -83.562,
+              41.6579
+            ],
+            [
+              -83.5613,
+              41.6575
+            ],
+            [
+              -83.5354,
+              41.661
+            ],
+            [
+              -83.5445,
+              41.6711
+            ],
+            [
+              -83.5724,
+              41.6697
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 78.846154,
+      "social_disadvantage_score": 92.871795,
+      "healthcare_access_barrier_score": 1.9230769230769231,
+      "exploratory_composite_score": 57.880342
+    },
+    {
+      "zcta5": "43623",
+      "county_fips": "39095",
+      "county_name": "Lucas County",
+      "centroid_lat": 41.702956,
+      "centroid_lon": -83.650077,
+      "diabetes_pct": 13.4,
+      "high_blood_pressure_pct": 37.0,
+      "depression_pct": 26.7,
+      "foodinsecu_pct": 13.0,
+      "median_household_income_usd": 65908.0,
+      "poverty_rate_pct": 12.862103174603174,
+      "no_vehicle_household_rate_pct": 6.9442953740474405,
+      "insured_population_count": 18855,
+      "uninsured_population_count": 1412,
+      "insured_population_pct": 93.03300932550451,
+      "uninsured_population_pct": 6.966990674495485,
+      "nearest_hrsa_center_km": 2.214,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.6496,
+              41.7274
+            ],
+            [
+              -83.6606,
+              41.7096
+            ],
+            [
+              -83.6959,
+              41.6967
+            ],
+            [
+              -83.6957,
+              41.6837
+            ],
+            [
+              -83.6816,
+              41.6896
+            ],
+            [
+              -83.6445,
+              41.6881
+            ],
+            [
+              -83.623,
+              41.6868
+            ],
+            [
+              -83.6235,
+              41.7239
+            ],
+            [
+              -83.6313,
+              41.728
+            ],
+            [
+              -83.6457,
+              41.7276
+            ],
+            [
+              -83.6496,
+              41.7274
+            ]
+          ]
+        ]
+      },
+      "health_need_score": 58.333333,
+      "social_disadvantage_score": 47.384615,
+      "healthcare_access_barrier_score": 36.53846153846153,
+      "exploratory_composite_score": 47.418803
+    }
+  ]
+}
