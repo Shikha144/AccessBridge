@@ -1,0 +1,403 @@
+import { Component, Suspense, lazy, useEffect, useRef, useState, type ReactNode } from "react";
+import { useStore } from "./store";
+import { reportError } from "./lib/observability";
+import Legend from "./components/Legend";
+import SearchBox from "./components/SearchBox";
+import TopControls from "./components/TopControls";
+import SiteCredits from "./components/SiteCredits";
+import Caret from "./components/Caret";
+import { COMPOSITE_METRIC, metricLabel } from "./lib/types";
+import ResearchModePanel from "./components/ResearchModePanel";
+import ResearchDashboard from "./components/ResearchDashboard";
+
+// The map stack (maplibre + deck.gl) is ~485 kB gz, larger than everything else combined. Imported
+// statically it is modulepreloaded, so nothing paints until it lands. Lazy so the shell paints on
+// the small app chunk; AppInner warms the import on mount so the download still overlaps the data
+// fetch rather than queuing behind it.
+const MapView = lazy(() => import("./components/MapView"));
+
+// Interaction-gated panels: none are needed for first paint (the rail starts collapsed, the
+// detail/compare panels appear only on selection, methodology only when opened). Code-splitting
+// them keeps the largest chunk - the map - out of their JS and trims the initial download, the
+// biggest win on mobile/cellular. Each renders only when its trigger fires, so the chunk loads
+// exactly when first used; fallback={null} because every one of these is already conditionally shown.
+const RankingsList = lazy(() => import("./components/RankingsList"));
+const DetailPanel = lazy(() => import("./components/DetailPanel"));
+const WeightSliders = lazy(() => import("./components/WeightSliders"));
+const MethodologyPanel = lazy(() => import("./components/MethodologyPanel"));
+const CompareTray = lazy(() => import("./components/CompareTray"));
+
+function Loading() {
+  return (
+    <div className="absolute inset-0 z-40 grid place-items-center bg-paper">
+      <div className="text-center">
+        <div className="w-8 h-8 border-2 border-hairline border-t-accent rounded-full animate-spin mx-auto" />
+        <div className="text-[13px] text-graphite mt-3">
+          Loading AccessBridge…
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorState({ msg }: { msg: string }) {
+  return (
+    <div className="absolute inset-0 z-40 grid place-items-center bg-paper">
+      <div className="panel rounded-md px-5 py-4 max-w-sm text-center">
+        <div className="text-[14px] font-medium text-ink">
+          Could not load map data
+        </div>
+        <div className="text-[12px] text-graphite mt-1">{msg}</div>
+        <button
+          className="mt-3 text-[12px] text-accent hover:underline"
+          onClick={() => location.reload()}
+        >
+          Retry
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// Top-level error boundary: a render-time throw anywhere in the tree would otherwise white-screen
+// the whole app (ErrorState only covers the data-load promise). Catch it, report it, and show a
+// recoverable fallback instead of a blank page.
+class ErrorBoundary extends Component<
+  { children: ReactNode },
+  { crashed: boolean; msg: string }
+> {
+  state = { crashed: false, msg: "" };
+
+  static getDerivedStateFromError(err: unknown) {
+    return {
+      crashed: true,
+      msg: err instanceof Error ? err.message : String(err),
+    };
+  }
+
+  componentDidCatch(err: unknown, info: { componentStack?: string | null }) {
+    reportError(err instanceof Error ? err.message : String(err), {
+      stack: err instanceof Error ? err.stack : undefined,
+      componentStack: info.componentStack ?? undefined,
+    });
+  }
+
+  render() {
+    if (this.state.crashed) {
+      return (
+        <div className="absolute inset-0 z-50 grid place-items-center bg-paper">
+          <div className="panel rounded-md px-5 py-4 max-w-sm text-center">
+            <div className="text-[14px] font-medium text-ink">
+              Something went wrong
+            </div>
+            <div className="text-[12px] text-graphite mt-1">
+              {this.state.msg || "unexpected error"}
+            </div>
+            <button
+              className="mt-3 text-[12px] text-accent hover:underline"
+              onClick={() => location.reload()}
+            >
+              Reload
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <AppInner />
+    </ErrorBoundary>
+  );
+}
+
+function AppInner() {
+  // Per-field selectors, not a whole-store destructure: hover() writes on every polygon
+  // crossing, and a whole-store subscription re-renders this tree on each one.
+  const status = useStore((s) => s.status);
+  const error = useStore((s) => s.error);
+  const load = useStore((s) => s.load);
+  const selectedZcta = useStore((s) => s.selectedZcta);
+  const compareCount = useStore((s) => s.compareZctas.length);
+  const showWeights = useStore((s) => s.showWeights);
+  const showMethodology = useStore((s) => s.showMethodology);
+  const toggleMethodology = useStore((s) => s.toggleMethodology);
+  const metric = useStore((s) => s.metric);
+  const rankOrder = useStore((s) => s.rankOrder);
+  const dataMode = useStore((s) => s.dataMode);
+  const setDataMode = useStore((s) => s.setDataMode);
+  const researchLoadStatus = useStore((s) => s.researchLoadStatus);
+  const researchModeError = useStore((s) => s.researchModeError);
+  const researchData = useStore((s) => s.researchData);
+  // The rail header must track the rankings' active metric + sort direction; "Most disadvantaged"
+  // is only correct on the default (composite, highest-first) view.
+  const rankTitle =
+    metric === COMPOSITE_METRIC
+      ? rankOrder === "desc"
+        ? "Most disadvantaged"
+        : "Least disadvantaged"
+      : metricLabel(metric);
+  const rankSub =
+    metric === COMPOSITE_METRIC
+      ? "ranked ZIPs"
+      : rankOrder === "desc"
+        ? "highest first"
+        : "lowest first";
+  const [railOpen, setRailOpen] = useState(false);
+  const [researchSection, setResearchSection] = useState<"overview" | "explore" | "insights">(
+    () => useStore.getState().dataMode === "ohio_research" ? "overview" : "explore",
+  );
+
+  // Mark everything behind the methodology dialog inert while it's open, so AT (VoiceOver rotor,
+  // virtual cursor) can't read the map/controls behind aria-modal. Ref, not the `inert` prop, since
+  // React 18 doesn't render it reliably.
+  const bgRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (bgRef.current) bgRef.current.inert = showMethodology;
+  }, [showMethodology]);
+
+  useEffect(() => {
+    load();
+    // Start the map chunk downloading alongside the data fetch instead of after it.
+    void import("./components/MapView");
+  }, [load]);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {/* Everything except the dialog: wrapped so it can be made inert while the modal is open. The
+          wrapper is a static, zero-size block; its absolutely-positioned children are unaffected. */}
+      <div ref={bgRef}>
+      {/* map (the hero, full-bleed) */}
+      <main className="absolute inset-0">
+        {status === "ready" && (dataMode === "demo" || researchSection === "explore") && (
+          <Suspense fallback={<Loading />}>
+            <MapView />
+          </Suspense>
+        )}
+      </main>
+
+      {status === "loading" && <Loading />}
+      {status === "error" && <ErrorState msg={error ?? "unknown error"} />}
+
+      {/* top bar (transparent over map) */}
+      <header className={`absolute top-0 left-0 right-0 z-30 flex items-start gap-2 px-3 py-2.5 flex-wrap max-[520px]:px-2 max-[520px]:py-2 ${
+        dataMode === "ohio_research" ? "pointer-events-auto border-b border-hairline bg-white/95 shadow-sm" : "pointer-events-none"
+      }`}>
+        <div className="pointer-events-auto flex items-center gap-2 flex-wrap">
+          <h1 className="font-serif text-[16px] text-ink bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded border border-hairline max-[520px]:text-[15px]">
+            {dataMode === "ohio_research" ? "AccessBridge · Ohio Research" : "AccessBridge · Demo"}
+          </h1>
+          {dataMode === "demo" && <FreshnessBadge />}
+          {status === "ready" && dataMode === "demo" && <CoverageNote />}
+          {status === "ready" && dataMode === "ohio_research" && (
+            <nav aria-label="Research sections" className="flex basis-full items-center gap-1 sm:basis-auto">
+              {([
+                ["overview", "Overview"],
+                ["explore", "Explore map"],
+                ["insights", "Research insights"],
+              ] as const).map(([section, label]) => (
+                <button
+                  key={section}
+                  type="button"
+                  aria-current={researchSection === section ? "page" : undefined}
+                  onClick={() => setResearchSection(section)}
+                  className={`min-h-9 rounded-md px-3 text-xs font-medium transition-colors ${
+                    researchSection === section
+                      ? "bg-[#14545A] text-white"
+                      : "text-[#37424D] hover:bg-[#EEF3F4]"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+          )}
+        </div>
+        <div className="flex-1 min-w-[8px]" />
+        <div className="pointer-events-auto flex items-center gap-1.5 flex-wrap justify-end max-[520px]:gap-1 max-[520px]:max-w-[270px]">
+          <label className="sr-only" htmlFor="data-mode">Data mode</label>
+          <select id="data-mode" aria-label="Data mode" value={dataMode}
+            disabled={status === "loading" || researchLoadStatus === "loading"}
+            onChange={(event) => {
+              const nextMode = event.target.value as "demo" | "ohio_research";
+              if (nextMode === "ohio_research") setResearchSection("overview");
+              void setDataMode(nextMode);
+            }}
+            className="text-[11px] text-ink bg-surface/90 border border-hairline rounded px-2 py-1.5 max-[520px]:max-w-[145px]">
+            <option value="demo">Demo (synthetic)</option>
+            <option value="ohio_research">Ohio research (public data)</option>
+          </select>
+          {researchLoadStatus === "loading" && <span role="status" className="text-[10px] bg-surface/90 border border-hairline rounded px-2 py-1">Loading Ohio bundle; demo remains active</span>}
+          {status === "ready" && dataMode === "demo" && <TopControls />}
+          {dataMode === "demo" && <SearchBox />}
+          <button
+            hidden={dataMode === "ohio_research"}
+            onClick={() => toggleMethodology(true)}
+            className="text-[12px] text-graphite hover:text-accent bg-surface/90 border border-hairline rounded px-2.5 py-1.5 whitespace-nowrap max-[520px]:px-2 max-[520px]:min-h-[40px] max-[520px]:inline-flex max-[520px]:items-center"
+          >
+            How to read this
+          </button>
+        </div>
+      </header>
+
+      {researchModeError && dataMode === "demo" && (
+        <div role="alert" className="absolute z-40 top-[58px] right-2 sm:right-3 panel max-w-[min(420px,94vw)] rounded border border-hairline p-2 text-[11px] text-ink">
+          <div className="font-medium">Ohio research bundle unavailable. Synthetic demo mode is still active.</div>
+          <div className="mt-1">{researchModeError}</div>
+          <button className="mt-1 text-accent hover:underline" onClick={() => void setDataMode("ohio_research")}>Retry research bundle</button>
+        </div>
+      )}
+
+      {/* left rail (desktop) / bottom sheet (mobile): rankings + customize.
+          Phone-width, the detail sheet takes the same bottom anchor and sits above this one, so
+          the rail is dropped rather than left as a control nobody can reach or tab to. Closing
+          the detail sheet brings it back. */}
+      {status === "ready" && dataMode === "demo" && (
+        <div className={`absolute z-20 left-2 right-2 bottom-2 sm:left-3 sm:right-auto sm:top-14 sm:bottom-auto sm:w-[282px] max-[520px]:bottom-1 ${selectedZcta ? 'max-sm:hidden' : ''}`}>
+          <div className={`panel rounded-md overflow-hidden flex flex-col max-h-[38vh] sm:max-h-[calc(100vh-150px)] ${railOpen ? '' : 'max-[520px]:max-h-[34px]'}`}>
+            <button
+              onClick={() => setRailOpen((v) => !v)}
+              aria-expanded={railOpen}
+              aria-label="Rankings"
+              className="px-3 py-2 flex items-center justify-between text-[13px] font-medium text-ink border-b border-hairline max-[520px]:py-1.5 max-[520px]:text-[12px]"
+            >
+              <span>
+                {rankTitle}
+                <span className="ml-1 font-normal text-[11px] text-graphite max-[520px]:hidden">
+                  {rankSub}
+                </span>
+              </span>
+              <Caret open={railOpen} size={14} className="text-graphite" />
+            </button>
+            {railOpen && (
+              <div className="flex-1 min-h-0 overflow-hidden">
+                <Suspense fallback={null}>
+                  <RankingsList />
+                </Suspense>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* detail panel (on selection): right rail desktop / bottom sheet mobile */}
+      {status === "ready" && dataMode === "demo" && selectedZcta && (
+        <div className="absolute z-30 left-2 right-2 bottom-2 sm:left-auto sm:right-3 sm:top-14 sm:bottom-auto max-[520px]:bottom-1">
+          <Suspense fallback={null}>
+            <DetailPanel />
+          </Suspense>
+        </div>
+      )}
+
+      {/* "What you're seeing" cluster: bottom-center. The legend (color-by metric +
+          histogram) and the weighting control are siblings - both govern what the map
+          shows - so they live together here. Weights expand UPWARD above the legend.
+          Sits below the sheet z-layer on mobile so an open sheet covers it.
+          Phone-width it left-aligns instead of centring, leaving the right gutter clear for the
+          map's zoom controls, which a full-bleed legend otherwise covers. */}
+      {status === "ready" && dataMode === "demo" && (
+        <div className="absolute z-10 left-1/2 -translate-x-1/2 bottom-[46px] sm:z-20 sm:bottom-4 w-[340px] max-w-[88vw] flex flex-col gap-1.5 max-[520px]:bottom-[40px] max-[520px]:left-2 max-[520px]:translate-x-0 max-[520px]:w-[calc(100vw-72px)]">
+          {showWeights && (
+            <div className="panel rounded-md overflow-hidden max-h-[50vh] overflow-y-auto">
+              <Suspense fallback={null}>
+                <WeightSliders />
+              </Suspense>
+            </div>
+          )}
+          <Legend />
+        </div>
+      )}
+
+      {/* comparison tray (when 1+ ZIPs are pinned): top-center, above the map */}
+      {status === "ready" && dataMode === "demo" && compareCount > 0 && (
+        <div className="absolute z-30 left-2 right-2 top-[52px] sm:left-1/2 sm:-translate-x-1/2 sm:right-auto sm:w-[540px] max-w-[96vw] max-[520px]:top-[126px]">
+          <Suspense fallback={null}>
+            <CompareTray />
+          </Suspense>
+        </div>
+      )}
+
+      {status === "ready" && dataMode === "demo" && <SiteCredits />}
+      {status === "ready" && dataMode === "ohio_research" && researchSection === "explore" && <ResearchModePanel />}
+      {status === "ready" && dataMode === "ohio_research" && researchSection !== "explore" && researchData && (
+        <ResearchDashboard section={researchSection} data={researchData} onExplore={() => setResearchSection("explore")} />
+      )}
+      <Toast />
+      </div>
+      {showMethodology && (
+        <Suspense fallback={null}>
+          <MethodologyPanel />
+        </Suspense>
+      )}
+    </div>
+  );
+}
+
+// "Data as of" freshness badge: makes the build date + source vintages visible at a glance
+// (a federal-index omission the audit flagged). Hidden until meta.json loads.
+function FreshnessBadge() {
+  const meta = useStore((s) => s.meta);
+  if (!meta?.generated) return null;
+  const v = meta.vintages ?? {};
+  const nppes = v.nppes
+    ?.replace(/^NPPES_Data_Dissemination_|\.zip$/g, "")
+    .replace(/_/g, " ");
+  const sha = meta.build?.git_sha;
+  const tip =
+    `Built ${meta.generated} from: CDC PLACES (${v.places ?? "?"}), ` +
+    `Census ACS 5-yr ${v.acs_year ?? "?"}, TIGER ${v.tiger_year ?? "?"}` +
+    (nppes ? `, NPPES ${nppes}` : "") +
+    `. ${meta.n_scored?.toLocaleString() ?? "?"} ZIPs scored.` +
+    (sha && sha !== "unknown" ? ` Build ${sha.slice(0, 7)}.` : "");
+  return (
+    <span
+      title={tip}
+      className="hidden sm:inline-block num text-[10px] text-graphite bg-surface/85 border border-hairline rounded px-1.5 py-1 cursor-help"
+    >
+      data as of {meta.generated}
+    </span>
+  );
+}
+
+function CoverageNote() {
+  const jumpToState = useStore((s) => s.jumpToState);
+  return (
+    <span className="hidden lg:inline-flex items-center gap-1 num text-[10px] text-graphite bg-surface/85 border border-hairline rounded px-1.5 py-1">
+      CONUS view
+      <span className="font-sans">· jump</span>
+      {(["AK", "HI", "PR"] as const).map((s) => (
+        <button
+          key={s}
+          onClick={() => jumpToState(s)}
+          className="justify-center min-w-6 text-accent hover:underline"
+          title={`Jump to ${s}`}
+        >
+          {s}
+        </button>
+      ))}
+    </span>
+  );
+}
+
+function Toast() {
+  const toast = useStore((s) => s.toast);
+  const setToast = useStore((s) => s.setToast);
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 4000);
+    return () => clearTimeout(t);
+  }, [toast, setToast]);
+  if (!toast) return null;
+  return (
+    <div
+      role="status"
+      className="absolute z-50 bottom-6 left-1/2 -translate-x-1/2 bg-ink text-paper text-[12px] px-3 py-2 rounded shadow-lg max-w-[90vw]"
+    >
+      {toast}
+    </div>
+  );
+}
