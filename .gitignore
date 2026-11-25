@@ -30,9 +30,21 @@ frontend/playwright-report/
 *.log
 
 # Research outputs and manuscripts
-research/
+research/*
 research_outputs/
 
+# Publish selected research documents
+!research/manuscript/
+research/manuscript/*
+!research/manuscript/final_submission/
+research/manuscript/final_submission/*
+!research/manuscript/final_submission/MANUSCRIPT.md
+!research/manuscript/final_submission/TITLE_PAGE.md
+!research/manuscript/final_submission/DATA_AVAILABILITY.md
+!research/manuscript/final_submission/ETHICS_STATEMENT.md
+!research/manuscript/final_submission/AUTHOR_CONTRIBUTIONS.md
+!research/manuscript/final_submission/FUNDING_AND_CONFLICTS.md
+!research/manuscript/final_submission/SOURCE_AND_OUTPUT_MANIFEST.json
 # Local datasets and database backups
 *.parquet
 *.sqlite
