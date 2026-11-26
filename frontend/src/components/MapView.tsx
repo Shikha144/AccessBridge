@@ -354,8 +354,9 @@ export default function MapView() {
   };
 
   return (
-    <Map
+        <Map
       ref={mapRef}
+      style={{ width: '100%', height: '100%' }}
       initialViewState={initialViewState}
       mapStyle={BASEMAP}
       minZoom={TILE_MIN_ZOOM - 2}
