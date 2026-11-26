@@ -533,13 +533,11 @@ Columbus, Ohio, USA
 
 ## Citation
 
-Please cite the associated research manuscript when publication details become available.
+I will cite the associated research manuscript when publication details become available.
 
 **Manuscript title:**
 
 *Mapping health-related and socioeconomic variation across Lucas County, Ohio: an exploratory, reproducible ZCTA pilot.*
-
-A persistent software or data archive DOI has not yet been assigned.
 
 ## Acknowledgement and Disclaimer
 
