@@ -31,7 +31,9 @@ export default function AccessBridgeMap({ data, indicator, selected, onSelect }:
   const area = hover ? data.areas.get(hover.id) : null;
   const shown = area ? researchValue(area, indicator) : null;
 
-  return <Map
+  return <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
+ <Map
+ style={{ width: '100%', height: '100%' }}
     initialViewState={{ bounds: data.bounds, fitBoundsOptions: { padding: 30 } }}
     mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
     interactiveLayerIds={['zcta-fill']}
@@ -49,7 +51,8 @@ export default function AccessBridgeMap({ data, indicator, selected, onSelect }:
     {hover && <Popup longitude={hover.longitude} latitude={hover.latitude} closeButton={false} closeOnClick={false} anchor="bottom">
       <strong>ZCTA {hover.id}</strong><br />{label(hover.id)}<br />{definition.label}: {shown == null ? 'No data' : (awaitFormat(shown, indicator))}
     </Popup>}
-  </Map>;
+   </Map>
+</div>;
 }
 
 function awaitFormat(value: number, indicator: ResearchIndicatorKey): string {
