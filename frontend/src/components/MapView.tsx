@@ -98,6 +98,7 @@ export default function MapView() {
   const select = useStore((s) => s.select);
   const hover = useStore((s) => s.hover);
   const [labelLayerId, setLabelLayerId] = useState<string | undefined>(undefined);
+  const [mapError, setMapError] = useState<string | null>(null);
   // Which geometry source is live. Flipped only when the zoom crosses DETAIL_ZOOM (not on every
   // move) so layers aren't rebuilt continuously while panning.
   const [detail, setDetail] = useState(false);
@@ -353,8 +354,10 @@ export default function MapView() {
     };
   };
 
-  return (
-        <Map
+  
+return (
+  <div className="relative w-full h-full">
+    <Map
       ref={mapRef}
       style={{ width: '100%', height: '100%' }}
       initialViewState={initialViewState}
@@ -365,6 +368,11 @@ export default function MapView() {
         const next = dataMode === 'demo' && e.viewState.zoom >= DETAIL_ZOOM;
         setDetail((cur) => (cur === next ? cur : next));
       }}
+      onError={(e) => {
+        const message = e.error?.message ?? 'Unknown MapLibre error';
+        console.error('[AccessBridge MapLibre]', e.error);
+        setMapError(message);
+      }}
       onLoad={(e) => {
         const style = (e.target as { getStyle: () => { layers: Array<{ id: string; type: string }> } }).getStyle();
         const firstSymbol = style?.layers?.find((l) => l.type === 'symbol');
@@ -374,5 +382,16 @@ export default function MapView() {
       <NavigationControl position="bottom-right" showCompass={false} />
       <DeckOverlay layers={layers} getTooltip={getTooltip as never} />
     </Map>
-  );
+
+    {mapError && (
+      <div
+        role="alert"
+        className="absolute bottom-4 left-4 right-4 z-50 rounded bg-white p-3 text-sm text-red-700 shadow"
+      >
+        Map rendering error: {mapError}
+      </div>
+    )}
+  </div>
+);
+
 }
